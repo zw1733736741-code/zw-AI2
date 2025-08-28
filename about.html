@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我 - 个人网站</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/navigation.css">
+    <link rel="stylesheet" href="styles/about.css">
+</head>
+<body>
+    <!-- 导航菜单 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>个人网站</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link active">关于我</a>
+                </li>
+                <li class="nav-item">
+                    <a href="douyin.html" class="nav-link">个人抖音</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://www.xiaohongshu.com/user/profile/63ce66bd000000002601160d?xsec_token=ABSAmNQYWj55HsrGo1pMgb3oiifch0q8EBJBqBPBS4pGs=&xsec_source=pc_note&wechatWid=c645f0ecd4f4855888ffe5c0e888e2b0&wechatOrigin=menu" target="_blank" class="nav-link">个人小红书</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容区域 -->
+    <main class="main-content">
+        <!-- 个人介绍区域 -->
+        <section class="about-hero">
+            <div class="container">
+                <div class="about-content">
+                    <div class="profile-section">
+                        <div class="profile-image">
+                            <svg class="profile-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="100" cy="100" r="100" fill="url(#profileGradient)"/>
+                                <circle cx="100" cy="80" r="30" fill="white" opacity="0.9"/>
+                                <path d="M60 140c0-22 18-40 40-40s40 18 40 40" fill="white" opacity="0.9"/>
+                                <defs>
+                                    <linearGradient id="profileGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <div class="profile-info">
+                            <h1 class="profile-name">益达达达达</h1>
+                            <p class="profile-title">AI训练师 & 内容创作者</p>
+                            <p class="profile-description">
+                                热爱学习和分享的AI训练师，专注于AI Prompt工程和内容创作。
+                                从编辑到AI训练师的六周蜕变之旅，正在探索AI的无限可能。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 个人经历区域 -->
+        <section class="experience-section">
+            <div class="container">
+                <h2 class="section-title">我的经历</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>AI训练师</h3>
+                            <p class="timeline-date">2024年 - 至今</p>
+                            <p>专注于AI Prompt工程，帮助企业和个人更好地利用AI技术。从编辑到AI训练师的六周蜕变之旅，掌握了AI训练的核心技能。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>内容编辑</h3>
+                            <p class="timeline-date">2023年 - 2024年</p>
+                            <p>负责内容创作和编辑工作，积累了丰富的文字处理和内容策划经验，为后续的AI训练工作打下了坚实基础。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>学习与成长</h3>
+                            <p class="timeline-date">持续进行</p>
+                            <p>不断学习新技术，关注AI领域的最新发展，通过实践和分享来提升自己的技能水平。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 技能展示区域 -->
+        <section class="skills-section">
+            <div class="container">
+                <h2 class="section-title">专业技能</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>AI Prompt工程</h3>
+                        <p>精通AI Prompt的设计和优化，能够创建高效、准确的AI交互指令。</p>
+                        <div class="skill-level">
+                            <div class="skill-bar" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polyline points="10,9 9,9 8,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>内容创作</h3>
+                        <p>具备丰富的内容创作和编辑经验，能够创作高质量的文字和多媒体内容。</p>
+                        <div class="skill-level">
+                            <div class="skill-bar" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>团队协作</h3>
+                        <p>良好的沟通能力和团队协作精神，能够有效地与团队成员合作完成项目。</p>
+                        <div class="skill-level">
+                            <div class="skill-bar" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 联系方式区域 -->
+        <section class="contact-section">
+            <div class="container">
+                <h2 class="section-title">联系我</h2>
+                <div class="contact-grid">
+                    <a href="douyin.html" class="contact-card">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 18V5l12-2v13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="6" cy="18" r="3" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3>抖音</h3>
+                        <p>关注我的抖音账号</p>
+                    </a>
+                    <a href="https://www.xiaohongshu.com/user/profile/63ce66bd000000002601160d?xsec_token=ABSAmNQYWj55HsrGo1pMgb3oiifch0q8EBJBqBPBS4pGs=&xsec_source=pc_note&wechatWid=c645f0ecd4f4855888ffe5c0e888e2b0&wechatOrigin=menu" target="_blank" class="contact-card">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>小红书</h3>
+                        <p>查看我的小红书笔记</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 个人网站. 遵循苹果设计美学.</p>
+        </div>
+    </footer>
+
+    <script src="scripts/navigation.js"></script>
+</body>
+</html>
