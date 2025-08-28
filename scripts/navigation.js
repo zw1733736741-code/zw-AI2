@@ -1,181 +1,242 @@
-// 导航菜单交互脚本
-document.addEventListener('DOMContentLoaded', function() {
-    // 获取DOM元素
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const navbar = document.querySelector('.navbar');
+/* 导航栏样式 - 苹果风格设计 */
 
-    // 汉堡菜单切换
-    if (hamburger) {
-        hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
+/* 导航栏容器 */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: all var(--transition-normal);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    min-height: 80px;
+}
+
+/* Logo样式 */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-weight: 700;
+    font-size: var(--font-size-medium);
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.logo-icon {
+    width: 32px;
+    height: 32px;
+    color: var(--primary-color);
+}
+
+/* 导航菜单 */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-xl);
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: var(--font-size-small);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    transition: all var(--transition-normal);
+    position: relative;
+    display: block;
+    margin: 0 var(--spacing-xs);
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+    background-color: rgba(0, 122, 255, 0.1);
+}
+
+.nav-link.active {
+    color: var(--primary-color);
+    background-color: rgba(0, 122, 255, 0.1);
+}
+
+/* 汉堡菜单按钮 */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    transition: all var(--transition-normal);
+}
+
+.hamburger:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-primary);
+    margin: 3px 0;
+    border-radius: 2px;
+    transition: all var(--transition-normal);
+}
+
+/* 汉堡菜单激活状态 */
+.hamburger.active .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 80px;
+        flex-direction: column;
+        background-color: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        width: 100%;
+        text-align: center;
+        transition: all var(--transition-normal);
+        box-shadow: var(--shadow-md);
+        padding: var(--spacing-lg) 0;
+        gap: 0;
     }
 
-    // 点击导航链接时关闭菜单
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            if (hamburger.classList.contains('active')) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            }
-        });
-    });
+    .nav-menu.active {
+        left: 0;
+    }
 
-    // 点击外部区域关闭菜单
-    document.addEventListener('click', function(event) {
-        if (!navbar.contains(event.target)) {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-        }
-    });
+    .nav-item {
+        margin: var(--spacing-sm) 0;
+    }
 
-    // 滚动时导航栏样式变化
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
+    .nav-link {
+        padding: var(--spacing-md) var(--spacing-lg);
+        font-size: var(--font-size-medium);
+        border-radius: 0;
+    }
 
-    // 平滑滚动到锚点链接
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            
-            // 如果是外部链接，不处理
-            if (href.startsWith('http') || href.startsWith('#')) {
-                return;
-            }
+    .nav-link:hover {
+        background-color: rgba(0, 122, 255, 0.1);
+    }
 
-            // 如果是当前页面的锚点链接
-            if (href.includes('#')) {
-                e.preventDefault();
-                const targetId = href.split('#')[1];
-                const targetElement = document.getElementById(targetId);
-                
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            }
-        });
-    });
+    .hamburger {
+        display: flex;
+    }
 
-    // 设置当前页面的活动链接状态
-    setActiveNavLink();
-});
-
-// 设置当前页面的活动导航链接
-function setActiveNavLink() {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    navLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        
-        // 移除所有活动状态
-        link.classList.remove('active');
-        
-        // 检查是否是当前页面
-        if (href === currentPage) {
-            link.classList.add('active');
-        }
-        
-        // 特殊处理首页
-        if (currentPage === 'index.html' && href === 'index.html') {
-            link.classList.add('active');
-        }
-    });
-}
-
-// 页面加载完成后的初始化
-window.addEventListener('load', function() {
-    // 添加页面加载动画
-    document.body.classList.add('loaded');
-    
-    // 初始化滚动效果
-    initScrollEffects();
-});
-
-// 初始化滚动效果
-function initScrollEffects() {
-    // 创建Intersection Observer用于滚动动画
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-in');
-            }
-        });
-    }, observerOptions);
-
-    // 观察需要动画的元素
-    const animateElements = document.querySelectorAll('.feature-card, .skill-card, .timeline-item, .contact-card');
-    animateElements.forEach(el => {
-        observer.observe(el);
-    });
-}
-
-// 工具函数：防抖函数
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-// 工具函数：节流函数
-function throttle(func, limit) {
-    let inThrottle;
-    return function() {
-        const args = arguments;
-        const context = this;
-        if (!inThrottle) {
-            func.apply(context, args);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, limit);
-        }
-    };
-}
-
-// 响应式导航栏处理
-function handleResponsiveNav() {
-    const navbar = document.querySelector('.navbar');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    if (window.innerWidth <= 768) {
-        // 移动端样式调整
-        if (navbar) navbar.classList.add('mobile');
-        if (navMenu) navMenu.classList.add('mobile');
-    } else {
-        // 桌面端样式调整
-        if (navbar) navbar.classList.remove('mobile');
-        if (navMenu) navMenu.classList.remove('mobile');
-        
-        // 确保移动端菜单关闭
-        const hamburger = document.querySelector('.hamburger');
-        if (hamburger) hamburger.classList.remove('active');
-        if (navMenu) navMenu.classList.remove('active');
+    .nav-container {
+        padding: 0 var(--spacing-sm);
     }
 }
 
-// 监听窗口大小变化
-window.addEventListener('resize', debounce(handleResponsiveNav, 250));
+@media (max-width: 480px) {
+    .nav-container {
+        height: 70px;
+    }
 
-// 页面加载完成后初始化响应式导航
-document.addEventListener('DOMContentLoaded', handleResponsiveNav);
+    .nav-menu {
+        top: 70px;
+    }
+
+    .nav-logo {
+        font-size: var(--font-size-small);
+    }
+
+    .logo-icon {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/* 滚动时的导航栏样式 */
+.navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.98);
+    box-shadow: var(--shadow-sm);
+}
+
+/* 导航链接的外部链接指示器 */
+.nav-link[target="_blank"]::after {
+    content: "↗";
+    margin-left: 4px;
+    font-size: 0.8em;
+    opacity: 0.7;
+}
+
+/* 导航栏动画效果 */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.nav-item {
+    animation: slideIn 0.3s ease forwards;
+}
+
+.nav-item:nth-child(1) { animation-delay: 0.1s; }
+.nav-item:nth-child(2) { animation-delay: 0.2s; }
+.nav-item:nth-child(3) { animation-delay: 0.3s; }
+.nav-item:nth-child(4) { animation-delay: 0.4s; }
+
+/* 确保导航栏在各种环境下正确显示 */
+.navbar {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.nav-menu {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* 强制导航链接间距 */
+.nav-item:not(:last-child) {
+    margin-right: var(--spacing-md);
+}
+
+/* 确保导航容器有足够的宽度 */
+.nav-container {
+    width: 100%;
+    max-width: 1200px;
+    min-width: 320px;
+}
+
